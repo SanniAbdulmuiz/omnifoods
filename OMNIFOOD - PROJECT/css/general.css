@@ -1,0 +1,294 @@
+/* 
+--- 01 TYPOGRAPHY SYSTEM
+- FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- fONT WEIGHT
+Default: 400
+Medium:500
+Semi-bold:600 
+Bold:700
+
+- LINE HEIGHTS
+Default : 1 
+Small : 1.05  
+Medium : 1.2
+Paragraph default : 1.6
+Large : 1.8
+
+- LETTER SPACING
+-0.5PX
+0.75PX
+--- 02 COLORS
+- Primary: #e67e22
+- Tints:
+#fdf2e9;
+#fae5d3
+- Shades:
+#cf711f
+#45260a
+- Accent: 
+- Greys: 
+#888
+#767676 (Lightest gray allowed on #fff)
+#6f6f6f
+#555
+##333
+
+--- 03 Images
+
+--- 04 Icons
+
+--- 05 Shadows
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  
+--- 06 Border-Radius
+defauil- 9px
+medium - 11px
+
+--- 07 WHite Space
+- Spacing System (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+
+/* THE DEFAULT FONT SIZE OF A BROWSER IS 16PX, 1REM=16PX  50REM= 50 X 16=800PX,
+  HOWEVER, IF IT'S SPECIFICALLY STATED IN THE HTML THAT (font-size=10px), then 1rem becomes 10px, 
+  50REM BECOMES 500PX.*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; (10 IS USED TO MAKE THE CALCULATION OF THE REM EASIER, DEFAULT IS 16PX FOR ALL 
+  BROWSERS.*/
+
+  /* THE PERCENTAGE VALUE IS USED TO RESPECT WHATEVER VALUE THE USER SET FOR THEIR FONT-SIZE
+
+   10PX / 16PX =0.625 = 62.5% 
+  (PERCENTAGE OF USER'S BROWSER FONT-SIZE SETTING) */
+  font-size: 62.5%;
+
+  /* This is because of the transform: translateX(100%);
+  given to the main-nav in queries*/
+  overflow-x: hidden;
+
+  /* Does not work on safari */
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+
+  /* This is because of the transform: translateX(100%);
+  given to the main-nav in queries*/
+  overflow-x: hidden;
+}
+
+/* **************** */
+/* General reusable components */
+/* **************** */
+
+.container {
+  /* 1140px */
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.grid {
+  display: grid;
+  column-gap: 4.8rem;
+  row-gap: 9.6rem;
+
+  /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child{
+  margin-bottom: 0;
+} */
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+.subheading {
+  /* span is an inline element, so we give it a 
+  display of block */
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+
+  /* only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* put transition on original state to 
+  to change from one value to another */
+  transition: all 0.3s;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+
+  /* border: 3px solid #fff; */
+  /* trick to add the border */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: flex-end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  padding: 2px;
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  border-bottom: 1px solid transparent;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+*:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  box-shadow: 0 0 0 0.5rem #555;
+}
+
+/* HELPER/SETTING CLASSES */
+.margin-right-smll {
+  margin-right: 1.6rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+strong {
+  font-weight: 500;
+}
